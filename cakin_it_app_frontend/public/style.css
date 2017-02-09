@@ -1,0 +1,52 @@
+*{
+    text-align: center;
+}
+#confirm{
+    margin-top: 10%;
+    float: right;
+}
+#logo{
+    margin-top: 30%;
+    width: 100%;
+    text-align: center;
+}
+
+#modalBtn{
+    margin-left: 5px;
+}
+
+#home{
+    min-height: 100vh;
+    height: 500px;
+}
+#creation{
+    margin: 40px;
+    background: #666;
+    height: 500px;
+}
+#theCanvas{
+
+
+}
+.gallery{
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+#about{
+    display: block;
+    width: 80%;
+}
+#about h3{
+    width: 100%;
+}
+
+#findA{
+
+}
+
+#contact{
+
+}
