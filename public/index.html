@@ -132,20 +132,21 @@
                 <div class="container">
                     <h2 ng-if="ctrl.loggedIn">{{ ctrl.welcome }} {{ ctrl.user.username | uppercase }} </h2>
                     <div class="">
-                        <button class="btn" type="button" ng-click="">Create a cake</button>
-                        <button class="btn" type="button"><a href="#home" ng-click="ctrl.logout()">Log Out</a></button>
-                        <button id="edit" class="btn" type="button">Edit Account</button>
-                        <form ng-if="edit" ng-model="edit">
-                            <input type="text" name="" value="">
-                            <input type="text" name="" value="">
-                        </form>
-                        <button id="delete" class="btn" type="button">Delete Account</button>
+                        <button class="btn" type="button" ng-if="ctrl.loggedIn" ng-model="new" ng-click="ctrl.creation();">Create a cake</button>
+                        <button class="btn" type="button"><a href="#home" ng-click="ctrl.logout();">Log Out</a></button>
+
+                        <button id="delete" ng-click="ctrl.deleteUser();">Delete Account</button>
 
                     </div>
 
 
-                    <div class="">
+                    <div ng-if="ctrl.creation" ng-show="new">
                          <div ng-include="'canvas/index.html'" class="container"></div>
+                         <!-- <button class="btn" type="button" ng-click="ctrl.editCreation();">Edit Account</button>
+                         <form ng-if="ctrl.editCreation" ng-model="editUser">
+                             <input type="text" name="title" placeholder="Creation Title">
+                             <input type="submit" value="Enter"/>
+                         </form> -->
                     </div>
 
 <!-------------------------- CREATION BUTTON ----------------------------------->

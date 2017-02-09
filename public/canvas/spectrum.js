@@ -2323,3 +2323,4 @@
             $.fn.spectrum.processNativeColorInputs();
         }
     });
+})
