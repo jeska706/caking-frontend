@@ -14,7 +14,9 @@ app.controller('mainController', ['$http', function($http){
     this.users = [];
     this.userPass = {};
     this.registeredPass = {};
-    controller.currentUser = {};
+    this.currentUser = {};
+    this.welcome = "Welcome to Caking, ";
+    this.wrongMessage = "Nope, Try Again!";
 
     //----------Register---------------
     this.registered = false;
@@ -67,16 +69,14 @@ app.controller('mainController', ['$http', function($http){
                 this.error = "Unauthorized";
                 console.log(this.error);
                 this.wrong = true;
-                this.wrongMessage = "Nope, Try Again!"
+
             }else{
                 this.users = res.data;
                 this.wrong = false;
                 console.log(res.data);
-                controller.currentUser = res.data.username;
-                console.log(controller.currentUser);
-                controller.welcome = "Welcome to Caking, " + controller.currentUser;
+                this.currentUser = res.data.username;
+                console.log(this.currentUser);
             }
-
         }.bind(this));
     }
 
@@ -84,7 +84,6 @@ app.controller('mainController', ['$http', function($http){
         localStorage.clear('token');
         this.currentUser = {};
         console.log(this.currentUser);
-
         location.reload();
         // this.currentUser = {};
         // console.log(this.currentUser);

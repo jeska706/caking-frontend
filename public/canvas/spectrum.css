@@ -1,5 +1,6 @@
 /*Adapted from https://github.com/LisaBee224/coloring_book*/
-/* which uses: Spectrum Colorpicker v1.8.0 https://github.com/bgrins/spectrumAuthor: Brian GrinsteadLicense: MIT*/
+/* which uses: Spectrum Colorpicker v1.8.0 https://github.com/bgrins/spectrumAuthor: Brian GrinsteadLicense: MIT
+*/
 
 .sp-container {
     position:absolute;
@@ -501,7 +502,7 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 
 
 #container{
-  width:40%;
+  width:80%;
   margin:0 auto;
   padding: 5%;
 }
@@ -529,12 +530,12 @@ body{
 /******************************************************************/
 
 #Layer-1{
-  float: left;
+  float:left;
 }
 #sidebar {
     text-align:center;
     float:right;
-    width:200px;
+    width:45%;
 }
 #swatches{
   width:200px;
