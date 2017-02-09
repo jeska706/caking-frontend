@@ -52,7 +52,6 @@ app.controller('mainController', ['$http', function($http){
             localStorage.setItem('token', JSON.stringify(res.data.token));
             this.loggedIn = true;
             this.userPass = {};
-            console.log(this.user);
         }.bind(this));
     }
 
@@ -76,7 +75,7 @@ app.controller('mainController', ['$http', function($http){
                 this.wrong = false;
                 console.log(res.data);
                 this.currentUser = this.user
-                console.log(this.currentUser);
+                // console.log(this.currentUser);
             }
         }.bind(this));
     }
