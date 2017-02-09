@@ -1,8 +1,8 @@
 // Adapted from https://github.com/LisaBee224/coloring_book
 (function( $ ) {
 
-  console.clear()
-  console.log('svgColor')
+  // console.clear()
+  // console.log('svgColor')
 
   var mainHolder, colorHolder
   var btnRandom, btnClear, btnDownloadSVG, btnDownloadPNG

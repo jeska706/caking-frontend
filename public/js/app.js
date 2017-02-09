@@ -14,9 +14,9 @@ app.controller('mainController', ['$http', function($http){
     this.users = [];
     this.userPass = {};
     this.registeredPass = {};
-    this.currentUser = {};
     this.welcome = "Welcome to Caking, ";
     this.wrongMessage = "Nope, Try Again!";
+    this.newCreation = {};
 
     //----------Register---------------
     this.registered = false;
@@ -48,10 +48,11 @@ app.controller('mainController', ['$http', function($http){
             // console.log(controller);
             console.log('this is the login res : ',res);
             this.user = res.data.user;
-            console.log(this.user);//coming back Unauthorized
+            console.log(this.user);
             localStorage.setItem('token', JSON.stringify(res.data.token));
             this.loggedIn = true;
             this.userPass = {};
+            console.log(this.user);
         }.bind(this));
     }
 
@@ -74,20 +75,64 @@ app.controller('mainController', ['$http', function($http){
                 this.users = res.data;
                 this.wrong = false;
                 console.log(res.data);
-                this.currentUser = res.data.username;
+                this.currentUser = this.user
                 console.log(this.currentUser);
             }
         }.bind(this));
     }
 
     this.logout = function(){
+        this.loggedIn = false;
         localStorage.clear('token');
         this.currentUser = {};
-        console.log(this.currentUser);
         location.reload();
         // this.currentUser = {};
         // console.log(this.currentUser);
     }
+
+    //--------------Delete User----------
+
+    this.deleteUser = function(){
+
+        console.log('delete route');
+        $http({
+            method: 'DELETE',
+            url: controller.url + "/users/" + this.user.id,
+            headers: {
+                Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+            }
+        }).then(function(res){
+            console.log(res)
+            this.logout();
+        }.bind(this));
+    }
+
+    //------------Creation route--------
+
+    this.creation = function(){
+        console.log("create route");
+
+        $http({
+            method: "POST",
+            url: controller.url + "/users/" + this.user.id + "/creations/",
+            headers: {
+                Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+            },
+            data: {
+                title: this.newCreation.title,
+                // user: this.username,
+                user_id: this.user.id
+            }
+        }).then(function(res){
+            console.log(res);
+            this.newCreation = res.data;
+        }.bind(this));
+    }
+    //---------------Edit User---------------
+    this.editCreation = function(){
+        console.log('edit route');
+    }
+
 
     //------------Cake Hit--------------
     $http({

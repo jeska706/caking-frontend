@@ -30,7 +30,11 @@
 }
 #users{
     border: 1px solid black;
-    
+    min-height: 100vh;
+
+}
+#users h2{
+    margin-top: 20%;
 }
 .gallery{
     text-align: center;
