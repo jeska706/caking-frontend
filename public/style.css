@@ -28,6 +28,10 @@
 
 
 }
+#users{
+    border: 1px solid black;
+    
+}
 .gallery{
     text-align: center;
     display: inline-block;
