@@ -76,19 +76,6 @@ app.controller('mainController', ['$http', function($http){
             }
         }).then(function(res) {
             console.log(res);
-
-            // if (res.data.status == 401){
-            //     this.error = "Unauthorized";
-            //     console.log(this.error);
-            //     this.wrong = true;
-            //
-            // }else{
-            //     this.users = res.data;
-            //     this.wrong = false;
-            //     console.log(res.data);
-            //     this.currentUser = this.user
-            //     // console.log(this.currentUser);
-            // }
         }.bind(this));
     }
 
@@ -131,8 +118,8 @@ app.controller('mainController', ['$http', function($http){
             },
             data: {
                 title: this.title,
-                // user: this.username,
-                user_id: this.user.id
+                user_id: this.user.id,
+                cake: '/cakes/' 
             }
         }).then(function(res){
             console.log(res);

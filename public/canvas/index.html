@@ -5,9 +5,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script  src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
     <script src='spectrum.js'></script>
-    <link rel='stylesheet' href='./spectrum.css' />
-    <script src="coloing.js"type="text/javascript"></script>
-    <link rel="stylesheet" href="./css.css">
+    <link rel='stylesheet' href='spectrum.css' />
+    <script src="coloring.js"type="text/javascript"></script>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
     <div id="container">
@@ -33,13 +33,13 @@
                 <div class="swatch" style="background-color:#dcffc0; width:40px; height:40px; border-radius:20px;float:left;"></div>
                 <div id="selection" style="stroke:#0000ff; stroke-opacity: 1;fill:none" x="0" y="0" width="20" height="20"></div>
             </div>
-            <div id="colorpicker">
+            <!-- <div id="colorpicker">
                 <h4>or choose your own colors!</h4>
                 <input type='text' id="custom" placeholder="ENTER A HEX COLOR #"/>
                 <button type="submit" for="#custom">Enter</button>
                 <button id="undo">undo</button>
                 <button id="save">save</button>
-            </div>
+            </div> -->
         </div>
 
         <div id="main">
@@ -58,7 +58,7 @@
                 <g id="three-tier-round.psd">
         	        <g>
                 		<g>
-                			<path fill="none" d="M11.433,388.162c0-125.576,0-251.153,0-376.729c124.333,0,248.667,0,373,0c0,125.577,0,251.153,0,376.729
+                			<path class="node" fill="none" d="M11.433,388.162c0-125.576,0-251.153,0-376.729c124.333,0,248.667,0,373,0c0,125.577,0,251.153,0,376.729
                 				C260.1,388.162,135.766,388.162,11.433,388.162z M112.182,237.349c-9.36,1.776-18.194,3.367-26.988,5.156
                 				c-4.646,0.945-6.778,3.423-6.731,8.781c0.28,32.007,0.252,64.018,0.019,96.024c-0.036,4.899,1.896,7.391,6.186,8.229
                 				c8.674,1.694,17.351,3.669,26.124,4.511c54.583,5.241,109.228,5.123,163.847,0.689c10.942-0.889,21.778-3.232,32.621-5.144
@@ -70,7 +70,7 @@
                 				c-4.144,0.701-6.024,3.23-5.968,7.917c0.25,21.129,0.109,42.263,0.108,63.396c0,1.671,0,3.342,0,5.293
                 				c-1.93,0.24-3.457,0.364-4.958,0.628c-7.182,1.259-14.428,2.257-21.515,3.93c-6.466,1.525-7.094,2.797-7.094,9.381
                 				c0,27.969,0,55.939,0,83.907C112.182,234.31,112.182,235.98,112.182,237.349z"/>
-                			<path fill-rule="evenodd" clip-rule="evenodd" d="M112.182,237.349c0-1.368,0-3.039,0-4.711c0-27.968,0-55.938,0-83.907
+                			<path class="node" fill-rule="evenodd" clip-rule="evenodd" d="M112.182,237.349c0-1.368,0-3.039,0-4.711c0-27.968,0-55.938,0-83.907
                 				c0-6.584,0.628-7.856,7.094-9.381c7.087-1.672,14.333-2.67,21.515-3.93c1.502-0.264,3.029-0.389,4.958-0.628
                 				c0-1.951,0-3.623,0-5.293c0.001-21.132,0.143-42.267-0.108-63.396c-0.056-4.687,1.824-7.216,5.968-7.917
                 				c9.622-1.628,19.261-3.455,28.97-4.197c17.388-1.329,34.782-0.75,52.029,2.196c2.138,0.365,4.264,0.866,6.346,1.477
@@ -103,75 +103,75 @@
                 				c-18.621,1.215-37.25,0.835-55.602-3.191c-4.463-0.979-9.252-1.851-10.117-7.74C134.756,138.61,124.464,138.646,115.338,143.56z
                 				 M245.377,62.056c-3.234-1.232-5.577-2.711-8.047-2.97c-14.009-1.466-28.048-3.645-42.075-3.628
                 				c-13.712,0.017-27.433,2.268-41.12,3.812c-2.33,0.263-4.505,1.902-7.307,3.153C164.657,73.993,229.498,73.589,245.377,62.056z"/>
-                			<path fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M309.624,252.117c0,0.733,0,1.965,0,3.195
+                			<path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M309.624,252.117c0,0.733,0,1.965,0,3.195
                 				c0,30.609-0.067,61.218,0.085,91.826c0.019,3.84-1.28,5.972-4.908,6.507c-12.862,1.899-25.698,4.821-38.62,5.308
                 				c-33.977,1.281-67.996,2.014-101.996,1.939c-24.499-0.054-49.023-1.473-73.174-6.299c-8.454-1.689-8.5-1.854-8.5-10.167
                 				c0-29.366,0-58.731,0-88.099c0-1.65,0-3.303,0-4.177C158.373,262.492,233.704,262.363,309.624,252.117z"/>
-                			<path fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M115.388,148.232c26.572,6.992,53.692,7.492,80.829,7.461
+                			<path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M115.388,148.232c26.572,6.992,53.692,7.492,80.829,7.461
                 				c26.985-0.03,53.958-0.534,80.642-7.524c0.097,1.24,0.266,2.41,0.267,3.579c0.015,27.493-0.119,54.986,0.125,82.477
                 				c0.046,5.244-1.779,7.946-6.783,8.529c-16.455,1.918-32.877,4.65-49.391,5.443c-27.141,1.303-54.343,1.019-81.394-2.237
                 				c-6.745-0.812-13.406-2.377-20.073-3.756c-3.056-0.632-4.658-2.47-4.647-5.922c0.086-28.889,0.047-57.78,0.063-86.67
                 				C115.026,149.18,115.248,148.748,115.388,148.232z"/>
-                			<path fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M147.474,66.284c32.531,9.275,64.659,9.139,96.999,0.032
+                			<path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M147.474,66.284c32.531,9.275,64.659,9.139,96.999,0.032
                 				c0.06,1.102,0.181,2.31,0.181,3.518c-0.007,21.892-0.151,43.786,0.063,65.676c0.041,4.179-1.597,6.101-5.268,6.72
                 				c-8.087,1.362-16.156,3.129-24.307,3.744c-18.917,1.426-37.852,1.276-56.588-2.24c-11.104-2.083-11.078-2.248-11.08-13.33
                 				c-0.003-19.874-0.001-39.748-0.001-59.622C147.474,69.261,147.474,67.742,147.474,66.284z"/>
-                			<path fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M82.937,246.38c2.18-0.852,4.294-2.018,6.554-2.491
+                			<path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M82.937,246.38c2.18-0.852,4.294-2.018,6.554-2.491
                 				c5.455-1.143,10.96-2.081,16.479-2.867c3.31-0.473,6.242,0.359,9.579,1.646c7,2.696,14.586,4.419,22.073,5.218
                 				c42.002,4.484,84.021,4.84,125.898-1.427c5.369-0.803,10.458-3.46,15.688-5.225c0.833-0.28,1.769-0.655,2.584-0.526
                 				c7.791,1.238,15.576,2.518,23.336,3.938c1.394,0.256,2.659,1.21,3.983,1.842c0.036,0.611,0.074,1.222,0.11,1.833
                 				c-5.105,1.206-10.151,2.984-15.325,3.513c-17.893,1.825-35.806,4.11-53.754,4.569c-29.328,0.75-58.719,1.007-88.026-0.065
                 				c-21.002-0.77-41.918-4.003-62.857-6.283c-2.14-0.233-4.17-1.467-6.252-2.236C82.983,247.338,82.959,246.858,82.937,246.38z"/>
-        			        <path fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M115.338,143.56c9.126-4.914,19.418-4.949,29.739-6.514
+        			        <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M115.338,143.56c9.126-4.914,19.418-4.949,29.739-6.514
         				        c0.865,5.889,5.654,6.761,10.117,7.74c18.352,4.026,36.981,4.406,55.602,3.191c9.705-0.634,19.375-2.317,28.957-4.091
         				        c5.201-0.963,5.704-2.04,7.457-6.745c10.03,1.319,20.341,1.606,29.581,6.375c0.027,0.549,0.054,1.098,0.08,1.648
         				        c-2.367,0.895-4.67,2.282-7.112,2.604c-14.423,1.906-28.852,4.698-43.329,5.055c-24.788,0.61-49.627,0.013-74.418-0.839
         				        c-9.996-0.343-19.94-2.58-29.867-4.202c-2.413-0.394-4.666-1.764-6.993-2.685C115.213,144.585,115.275,144.072,115.338,143.56z"/>
-        			        <path fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M245.377,62.056c-15.879,11.533-80.72,11.937-98.548,0.368
+        			        <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M245.377,62.056c-15.879,11.533-80.72,11.937-98.548,0.368
         				        c2.801-1.251,4.977-2.89,7.307-3.153c13.687-1.544,27.407-3.795,41.12-3.812c14.027-0.017,28.066,2.162,42.075,3.628
         				        C239.8,59.345,242.143,60.824,245.377,62.056z"/>
 
-        				    <path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+        				    <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
         				        M112.609,238.963c-8.082,1.398-16.192,2.652-24.236,4.241c-6.506,1.285-7.839,1.104-7.896,10.679
         				        c-0.125,21.291-0.039,42.584-0.039,63.876c0,9.791,0.165,19.586-0.079,29.372c-0.1,4.021,1.179,6.271,5.204,7.019
         				        c7.941,1.476,15.795,3.798,23.796,4.494c17.832,1.553,35.72,2.733,53.609,3.299c20.033,0.634,40.108,0.959,60.139,0.442
         				        c25.895-0.668,51.838-1.414,77.402-6.39c0.149-0.029,0.315,0.024,0.464-0.008c10.348-2.248,10.725-2.707,10.725-13.051
         				        c0-29.219-0.003-58.438,0.001-87.655c0.002-12.156-1.641-10.624-10.3-12.896c-7.101-1.864-14.568-2.334-21.872-3.422"/>
 
-        				    <path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+        				    <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
         				        M310.299,249.22c-17.647,5.246-35.846,6.754-54.088,7.381c-27.031,0.929-54.088,1.97-81.123,1.733
         				        c-20.524-0.18-41.067-1.879-61.533-3.68c-10.804-0.952-21.461-3.569-32.185-5.435"/>
 
-        				    <path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+        				    <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
         				        M145.712,135.921c-8.548,1.398-17.103,2.755-25.641,4.213c-4.646,0.793-6.641,3.404-6.613,8.376
         				        c0.167,29.838,0.082,59.68,0.084,89.52c0,4.39,3.873,4.88,6.557,5.449c8.464,1.794,17.019,3.598,25.623,4.204
         				        c17.53,1.236,35.118,2.367,52.676,2.281c18.033-0.087,36.079-1.396,54.075-2.753c6.904-0.521,13.691-2.636,20.524-4.06
         				        c4.296-0.896,5.758-3.324,5.717-7.921c-0.244-27.195-0.12-54.395-0.12-81.593c0-12.131-2.084-14.255-14.45-15.423
         				        c-5.927-0.56-11.815-1.517-17.721-2.294"/>
 
-        				    <path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+        				    <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
         				        M277.661,146.179c-9.584,3.805-19.635,5.481-29.843,6.013c-20.973,1.093-41.964,2.735-62.939,2.609
         				        c-19.96-0.121-40.023-1.048-59.672-5.398c-3.637-0.806-7.158-2.135-10.733-3.224"/>
 
-        				    <path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+        				    <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
         				        M147.111,65.051c-0.155,4.973-0.399,9.946-0.451,14.92c-0.195,18.65-0.349,37.3-0.463,55.95
         				        c-0.022,3.736,1.666,6.381,5.579,6.976c10.561,1.606,21.094,3.947,31.713,4.466c12.388,0.607,24.879-0.053,37.28-0.862
         				        c6.58-0.43,13.062-2.355,19.593-3.582c3.891-0.731,5.601-3.262,5.574-6.998c-0.106-14.92-0.269-29.84-0.455-44.76
         				        c-0.109-8.704-0.302-17.407-0.458-26.11"/>
 
-        				    <path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+        				    <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
         				        M229.171,69.248c4.353-1.243,8.733-2.395,13.036-3.789c1.213-0.393,2.194-1.496,3.283-2.273
         				        c-1.089-1.088-1.989-2.705-3.299-3.166c-4.26-1.503-8.595-3.158-13.033-3.728c-19.366-2.487-38.836-2.879-58.254-0.898
         				        c-7.079,0.722-14.032,2.854-20.967,4.637c-1.283,0.33-2.204,2.067-3.292,3.155c1.088,0.777,2.071,1.854,3.283,2.277
         				        c3.99,1.389,8.062,2.542,12.104,3.785"/>
 
-        				    <path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+        				    <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
         				        M216.116,71.112c-13.365,0-26.731,0-40.098,0"/>
 
-        				    <path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+        				    <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
         				        M175.086,70.646c-4.041-0.311-8.082-0.622-12.123-0.933"/>
 
-        				    <path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+        				    <path class="node" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
         				        M228.238,69.714c-3.729,0.311-7.46,0.622-11.189,0.933"/>
         		            </g>
         	            </g>
@@ -190,43 +190,43 @@ $("#custom").spectrum({
     showSelectionPalette: true
 });
 $(".sp-val").mouseup(function(){
-  _currentFill = ($(".sp-input").val());
+    _currentFill = ($(".sp-input").val());
 });
 $(".sp-choose").click(function(){
-  _currentFill = ($(".sp-input").val());
+    _currentFill = ($(".sp-input").val());
 });
 </script>
 <script>
-  var fillSpeed = 5
-  var _currentFill = "fill:#000";
-  var allChanges = [];
-  var change ={};
-  var count =-1;
+    var fillSpeed = 5
+    var _currentFill = "fill:#000";
+    var allChanges = [];
+    var change ={};
+    var count =-1;
     var $swatches = $("#swatches");
     $swatches.click(function (event) {
-      $swatch = $(event.target);
-      $("#selection", $swatches).attr('background-color');
-      $("#selection", $swatches).attr('background-color');
-      _currentFill = $swatch.css('background-color');
-      $("#current-swatch").css('background-color', _currentFill);
+        $swatch = $(event.target);
+        $("#selection", $swatches).attr('background-color');
+        $("#selection", $swatches).attr('background-color');
+        _currentFill = $swatch.css('background-color');
+        $("#current-swatch").css('background-color', _currentFill);
     })
 
 //-------------------------SET VARIABLE TO EQUAL ONCLICK FUNC-------------
     $("#Layer-1").click(function (event) {
-      count++;
-      $color = _currentFill;
-      change[event.target.id] = $color;
-      allChanges.push(change);
-      change = {};
-       $(event.target).css('fill', _currentFill);
+    count++;
+        $color = _currentFill;
+        change[event.target.id] = $color;
+        allChanges.push(change);
+        change = {};
+        $(event.target).css('fill', _currentFill);
     });
     $("#undo").click(function(){
     count--;
-      var path = Object.keys(allChanges[count]).shift();
-      var oldFill = Object.keys(allChanges[count]).map(function(key){
-        return allChanges[count][key];
-      }).shift();
-      $("#"+path).css('fill', oldFill);
+        var path = Object.keys(allChanges[count]).shift();
+        var oldFill = Object.keys(allChanges[count]).map(function(key){
+            return allChanges[count][key];
+        }).shift();
+        $("#"+path).css('fill', oldFill);
 
     });
 </script>

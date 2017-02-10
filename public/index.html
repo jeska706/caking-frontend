@@ -12,7 +12,7 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         <!-- <script type="text/javascript" src="js/cake-canvas.js"></script> -->
         <!-- SVG -->
-
+        <link href="https://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet">
         <link rel='stylesheet' href='canvas/spectrum.css'/>
         <link rel="stylesheet" href="canvas/css.css">
         <title>Cakin' It</title>
@@ -21,9 +21,12 @@
         <div class="">
 
 <!------------------------------ HOME SECTION ----------------------------------->
-            <div class="container">
+        <div class="">
+
+
+            <div class=" ">
                 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top ">
-                    <div class="container">
+                    <div class="">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="glyphicon glyphicon-align-justify"></span>
@@ -31,12 +34,12 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <div class="nav navbar-nav">
-                                <a href="#home">HOME</a>
-                                <a href="#about">ABOUT</a>
-                                <a href="#inspireGallery">INSPIRATION GALLERY</a>
-                                <a href="#users" ng-click="ctrl.getUsers()">YOUR PAGE</a>
-                                <a href="#findA">FIND A BAKERY</a>
-                                <a href="#contact">CONTACT US</a>
+                                <a class="navBtn" href="#home">HOME</a>
+                                <a class="navBtn" href="#about">ABOUT</a>
+                                <a class="navBtn" href="#inspireGallery">INSPIRATION GALLERY</a>
+                                <a class="navBtn" href="#users" ng-click="ctrl.getUsers()">YOUR PAGE</a>
+                                <a class="navBtn" href="#findA">FIND A BAKERY</a>
+                                <a class="navBtn" href="#contact">CONTACT US</a>
                                 <form id="navSearch" class="navbar-form pull-right" role="search" action="index.html" method="post">
                                     <div class="form-group has-feedback navbar-left">
                                         <input class="form-control" type="text" placeholder="Inspiration Gallery" ng-model="searchCake"/>
@@ -53,12 +56,12 @@
                 <div id="confirm">
                     <div id="register">
                         <div ng-hide="register" >
-                            <button ng-if="!ctrl.registered" class="btn pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
+                            <a ng-if="!ctrl.registered" class=" " data-target="#registerModal" data-toggle="modal">Register</a>
                         </div>
                     </div>
                     <div id="login">
                         <div ng-hide="login">
-                            <button ng-if="!ctrl.loggedIn" class="btn pull-right" data-target="#loginModal" data-toggle="modal"><a href="#users">Login</a></button>
+                            <a ng-if="!ctrl.loggedIn" class="" data-target="#loginModal" data-toggle="modal"><a href="#users">Login</a></a>
                         </div>
                     </div>
                 </div>
@@ -114,14 +117,14 @@
                 </div>
 
 <!------------------------------- LOGO SECTION --------------------------->
-                <div class="container">
-                    <div class="" id="logo">
-                        <h1>CAKING</h1>
+                <div class="">
+                    <div class="" >
+                        <h1 id="logo">CAKING</h1>
                     </div>
                 </div>
             </div>
 
-
+        </div>
 <!--------------------------------- END OF HOME ---------------------------------------->
 
 
@@ -134,7 +137,7 @@
                         <button class="btn" type="button" ng-if="ctrl.loggedIn" ng-model="new" ng-click="ctrl.creation();">Create a cake</button>
                         <button class="btn" type="button"><a href="#home" ng-click="ctrl.logout();">Log Out</a></button>
 
-                        <button id="delete" ng-click="ctrl.deleteUser();">Delete Account</button>
+                        <button id="delete" class="btn" ng-click="ctrl.deleteUser();">Delete Account</button>
 
                     </div>
                     <div ng-include="'canvas/index.html'" class="container"></div>
@@ -162,18 +165,20 @@
 <!------------------------------- ABOUT SECTION --------------------------------->
             <div class="container" id="about">
                 <div class="">
-
+                    <h3>About the page</h3>
+                    <p>lalalalal blah blah lalala</p>
                 </div>
             </div>
 <!------------------------------- END OF ABOUT ---------------------------------->
 
 <!---------------------------- INSPRIATION GALLERY ------------------------------>
             <div class="container">
-                <h3>Inspiration Gallery</h3>
                 <div id="inspireGallery">
+                    <h3>Inspiration Gallery</h3>
+
                     <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
                         <h3>{{ cake.title }}</h3>
-                        <img class="img-responsive" src="{{ cake.img }}" style="width:300px;height:300px;"/><br>
+                        <img class="img-responsive img-circle" src="{{ cake.img }}" style="width:300px;height:300px;"/><br>
                         <form ng-submit="ctrl.creation()">
                             <button type="submit" name="button">Add to your gallery</button>
                         </form>
