@@ -12,8 +12,7 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         <!-- <script type="text/javascript" src="js/cake-canvas.js"></script> -->
         <!-- SVG -->
-        <script type="text/javascript" src='canvas/spectrum.js'></script>
-        <script type="text/javascript" src="canvas/coloring.js"></script>
+
         <link rel='stylesheet' href='canvas/spectrum.css'/>
         <link rel="stylesheet" href="canvas/css.css">
         <title>Cakin' It</title>
@@ -107,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button ng-click="ctrl.getUsers()" class="btn" type="submit" data-dismiss="modal"><a href="#users">Create Your Own Gallery!</a></button>
+                                <button ng-click="ctrl.getUsers()" class="btn" type="submit" data-dismiss="modal">Create Your Own Gallery!</button>
                                 <p ng-if="ctrl.wrong">{{ctrl.wrongMessage}}</p>
                             </div>
                         </div>
@@ -138,7 +137,7 @@
                         <button id="delete" ng-click="ctrl.deleteUser();">Delete Account</button>
 
                     </div>
-
+                    <div ng-include="'canvas/index.html'" class="container"></div>
 
                     <div ng-if="ctrl.creation" ng-show="new">
                          <div ng-include="'canvas/index.html'" class="container"></div>
@@ -148,7 +147,11 @@
                              <input type="submit" value="Enter"/>
                          </form> -->
                     </div>
-
+                    <div ng-repeat="newCreation in ctrl.newCreations">
+                        <ul>
+                            <li>{{ctrl.newCreation.title}}</li>
+                        </ul>
+                    </div>
 <!-------------------------- CREATION BUTTON ----------------------------------->
 
                 </div>
@@ -171,7 +174,9 @@
                     <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
                         <h3>{{ cake.title }}</h3>
                         <img class="img-responsive" src="{{ cake.img }}" style="width:300px;height:300px;"/><br>
-                        <button type="button" name="button">Add to your gallery</button>
+                        <form ng-submit="ctrl.creation()">
+                            <button type="submit" name="button">Add to your gallery</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -195,5 +200,7 @@
 
         </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src='canvas/spectrum.js'></script>
+        <script type="text/javascript" src="canvas/coloring.js"></script>
     </body>
 </html>

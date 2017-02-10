@@ -16,7 +16,7 @@ app.controller('mainController', ['$http', function($http){
     this.registeredPass = {};
     this.welcome = "Welcome to Caking, ";
     this.wrongMessage = "Nope, Try Again!";
-    this.newCreation = {};
+    this.newCreations = {};
 
     //----------Register---------------
     this.registered = false;
@@ -49,6 +49,18 @@ app.controller('mainController', ['$http', function($http){
             console.log('this is the login res : ',res);
             this.user = res.data.user;
             console.log(this.user);
+            if (res.data.status == 401){
+                this.error = "Unauthorized";
+                console.log(this.error);
+                this.wrong = true;
+
+            }else{
+                this.users = res.data;
+                this.wrong = false;
+                console.log(res.data);
+                this.currentUser = this.user
+                // console.log(this.currentUser);
+            }
             localStorage.setItem('token', JSON.stringify(res.data.token));
             this.loggedIn = true;
             this.userPass = {};
@@ -65,18 +77,18 @@ app.controller('mainController', ['$http', function($http){
         }).then(function(res) {
             console.log(res);
 
-            if (res.data.status == 401){
-                this.error = "Unauthorized";
-                console.log(this.error);
-                this.wrong = true;
-
-            }else{
-                this.users = res.data;
-                this.wrong = false;
-                console.log(res.data);
-                this.currentUser = this.user
-                // console.log(this.currentUser);
-            }
+            // if (res.data.status == 401){
+            //     this.error = "Unauthorized";
+            //     console.log(this.error);
+            //     this.wrong = true;
+            //
+            // }else{
+            //     this.users = res.data;
+            //     this.wrong = false;
+            //     console.log(res.data);
+            //     this.currentUser = this.user
+            //     // console.log(this.currentUser);
+            // }
         }.bind(this));
     }
 
@@ -118,13 +130,14 @@ app.controller('mainController', ['$http', function($http){
                 Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
             },
             data: {
-                title: this.newCreation.title,
+                title: this.title,
                 // user: this.username,
                 user_id: this.user.id
             }
         }).then(function(res){
             console.log(res);
-            this.newCreation = res.data;
+            this.newCreations = res.data;
+            console.log(this.newCreations);
         }.bind(this));
     }
     //---------------Edit User---------------
