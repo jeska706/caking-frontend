@@ -56,12 +56,17 @@
                 <div id="confirm">
                     <div id="register">
                         <div ng-hide="register" >
-                            <a ng-if="!ctrl.registered" class=" " data-target="#registerModal" data-toggle="modal">Register</a>
+                            <button class=" " data-target="#registerModal" data-toggle="modal">Register</a></button>
+                             <!-- ng-if="!ctrl.registered" -->
                         </div>
                     </div>
                     <div id="login">
                         <div ng-hide="login">
-                            <a ng-if="!ctrl.loggedIn" class="" data-target="#loginModal" data-toggle="modal"><a href="#users">Login</a></a>
+                            <!-- <button class="" data-target="#loginModal" data-toggle="modal"><a href="#users">Login</a></button> -->
+                            <a class="" data-target="#loginModal" data-toggle="modal" href="#users">Login</a>
+
+                             <!-- ng-if="!ctrl.loggedIn" -->
+
                         </div>
                     </div>
                 </div>
@@ -138,7 +143,11 @@
                         <button class="btn" type="button"><a href="#home" ng-click="ctrl.logout();">Log Out</a></button>
 
                         <button id="delete" class="btn" ng-click="ctrl.deleteUser();">Delete Account</button>
-
+                        <button class="btn" type="button" ng-click="ctrl.editUser();">Edit Account</button>
+                        <form ng-if="ctrl.editUser" ng-model="editUser">
+                            <input type="text" name="username" placeholder="Edit your username">
+                            <input type="submit" value="Enter"/>
+                        </form>
                     </div>
                     <div ng-include="'canvas/index.html'" class="container"></div>
 

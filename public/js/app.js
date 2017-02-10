@@ -17,6 +17,7 @@ app.controller('mainController', ['$http', function($http){
     this.welcome = "Welcome to Caking, ";
     this.wrongMessage = "Nope, Try Again!";
     this.newCreations = {};
+    this.myGallery = {};
 
     //----------Register---------------
     this.registered = false;
@@ -87,6 +88,10 @@ app.controller('mainController', ['$http', function($http){
         // this.currentUser = {};
         // console.log(this.currentUser);
     }
+    //---------------Edit User---------------
+    this.editUser = function(){
+        console.log('edit route');
+    }
 
     //--------------Delete User----------
 
@@ -118,8 +123,9 @@ app.controller('mainController', ['$http', function($http){
             },
             data: {
                 title: this.title,
-                user_id: this.user.id,
-                cake: '/cakes/' 
+                user_id: this.user.id
+                //,
+                //cake: '/cakes/'
             }
         }).then(function(res){
             console.log(res);
@@ -127,16 +133,19 @@ app.controller('mainController', ['$http', function($http){
             console.log(this.newCreations);
         }.bind(this));
     }
-    //---------------Edit User---------------
-    this.editCreation = function(){
-        console.log('edit route');
-    }
+
 
 
     //------------Cake Hit--------------
     $http({
         method: 'GET',
         url: this.url + '/cakes'
+        //,
+        // headers: {
+        //     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+        // },
+        // data: this.cake
+
     }).then(function(res){
         // console.log(res);
         // console.log('this is this: ', controller);
