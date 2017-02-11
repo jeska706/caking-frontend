@@ -145,8 +145,8 @@
                         <button id="delete" class="btn" ng-click="ctrl.deleteUser();">Delete Account</button>
                         <button class="btn" type="button" ng-click="ctrl.editUser();">Edit Account</button>
                         <form ng-if="ctrl.editUser" ng-model="editUser">
-                            <input type="text" name="username" placeholder="Edit your username">
-                            <input type="submit" value="Enter"/>
+                            <input type="text" name="username" value="{{ ctrl.user.username }}">
+                            <input type="submit" ng-model="editUser" value="Enter"/>
                         </form>
                     </div>
                     <div ng-include="'canvas/index.html'" class="container"></div>
@@ -159,9 +159,10 @@
                              <input type="submit" value="Enter"/>
                          </form> -->
                     </div>
-                    <div ng-repeat="newCreation in ctrl.newCreations">
+                    <div ng-repeat="gallery in ctrl.gallery">
                         <ul>
-                            <li>{{ctrl.newCreation.title}}</li>
+                            <li>{{ cake.title }}</li>
+                            <img src="{{ cake.img }}" style="width:300px;height:300px;">
                         </ul>
                     </div>
 <!-------------------------- CREATION BUTTON ----------------------------------->
@@ -188,7 +189,7 @@
                     <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
                         <h3>{{ cake.title }}</h3>
                         <img class="img-responsive img-circle" src="{{ cake.img }}" style="width:300px;height:300px;"/><br>
-                        <form ng-submit="ctrl.creation()">
+                        <form ng-submit="ctrl.gallery()" ng-model="gallery">
                             <button type="submit" name="button">Add to your gallery</button>
                         </form>
                     </div>

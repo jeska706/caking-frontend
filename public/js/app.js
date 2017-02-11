@@ -91,6 +91,17 @@ app.controller('mainController', ['$http', function($http){
     //---------------Edit User---------------
     this.editUser = function(){
         console.log('edit route');
+        $http({
+            method: 'PUT',
+            url: controller.url + "/users/" + this.user.id,
+            data: this.newUser
+            // headers: {
+            //     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+            // }
+        }).then(function(res){
+            console.log(res)
+            this.user = res.data
+        }.bind(this));
     }
 
     //--------------Delete User----------
@@ -133,8 +144,26 @@ app.controller('mainController', ['$http', function($http){
             console.log(this.newCreations);
         }.bind(this));
     }
+    //-------------Gallery---------------------
+    this.gallery = function(){
+        console.log("Gallery route");
 
-
+        $http({
+            method: 'GET',
+            url: controller.url + '/galleries/',
+            headers: {
+                Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+            }
+        }).then(function(res){
+            console.log(res.data);
+            this.myGallery = res.data;
+            this.cake = res.data.title;
+            this.img = res.data.img;
+        },function(res){
+            controller.err = res.data;
+            console.log('this is a gallery error: ', controller.err);
+        }.bind(this));
+    }
 
     //------------Cake Hit--------------
     $http({
