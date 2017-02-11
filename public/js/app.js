@@ -17,6 +17,7 @@ app.controller('mainController', ['$http', function($http){
     this.welcome = "Welcome to Caking, ";
     this.wrongMessage = "Nope, Try Again!";
     this.newCreations = {};
+    this.myGallery = {};
 
     //----------Register---------------
     this.registered = false;
@@ -87,6 +88,21 @@ app.controller('mainController', ['$http', function($http){
         // this.currentUser = {};
         // console.log(this.currentUser);
     }
+    //---------------Edit User---------------
+    this.editUser = function(){
+        console.log('edit route');
+        $http({
+            method: 'PUT',
+            url: controller.url + "/users/" + this.user.id,
+            data: this.newUser
+            // headers: {
+            //     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+            // }
+        }).then(function(res){
+            console.log(res)
+            this.user = res.data
+        }.bind(this));
+    }
 
     //--------------Delete User----------
 
@@ -118,8 +134,9 @@ app.controller('mainController', ['$http', function($http){
             },
             data: {
                 title: this.title,
-                user_id: this.user.id,
-                cake: '/cakes/' 
+                user_id: this.user.id
+                //,
+                //cake: '/cakes/'
             }
         }).then(function(res){
             console.log(res);
@@ -127,16 +144,37 @@ app.controller('mainController', ['$http', function($http){
             console.log(this.newCreations);
         }.bind(this));
     }
-    //---------------Edit User---------------
-    this.editCreation = function(){
-        console.log('edit route');
-    }
+    //-------------Gallery---------------------
+    this.gallery = function(){
+        console.log("Gallery route");
 
+        $http({
+            method: 'GET',
+            url: controller.url + '/galleries/',
+            headers: {
+                Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+            }
+        }).then(function(res){
+            console.log(res.data);
+            this.myGallery = res.data;
+            this.cake = res.data.title;
+            this.img = res.data.img;
+        },function(res){
+            controller.err = res.data;
+            console.log('this is a gallery error: ', controller.err);
+        }.bind(this));
+    }
 
     //------------Cake Hit--------------
     $http({
         method: 'GET',
         url: this.url + '/cakes'
+        //,
+        // headers: {
+        //     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+        // },
+        // data: this.cake
+
     }).then(function(res){
         // console.log(res);
         // console.log('this is this: ', controller);
