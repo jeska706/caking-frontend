@@ -148,25 +148,7 @@ app.controller('mainController', ['$http', function($http){
     //     }.bind(this));
     // }
     //-------------Gallery---------------------
-    // this.gallery = function(){
-    //     console.log("Gallery route");
-    //
-    //     $http({
-    //         method: 'GET',
-    //         url: controller.url + '/galleries/',
-    //         headers: {
-    //             Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-    //         }
-    //     }).then(function(res){
-    //         console.log(res.data);
-    //         this.myGallery = res.data;
-    //         this.cake = res.data.title;
-    //         this.img = res.data.img;
-    //     },function(res){
-    //         controller.err = res.data;
-    //         console.log('this is a gallery error: ', controller.err);
-    //     }.bind(this));
-    // }
+
 
     //------------Cake Hit--------------
     $http({
@@ -174,10 +156,10 @@ app.controller('mainController', ['$http', function($http){
         url: this.url + '/cakes'
 
     }).then(function(res){
-        // console.log(res);
+        console.log(res);
         // console.log('this is this: ', controller);
         controller.cakes = res.data;
-        // console.log(controller.cakes);
+        console.log(controller.cakes);
     },function(res){
         controller.err = res.data;
         console.log(controller.err);
