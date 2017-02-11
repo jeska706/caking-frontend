@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="style.css">
         <!-- ANGULAR -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
         <!-- JQUERY -->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         <!-- <script type="text/javascript" src="js/cake-canvas.js"></script> -->
-        <!-- SVG -->
+        <script type="text/javascript" src="js/app.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet">
+        <!-- SVG -->
         <link rel='stylesheet' href='canvas/spectrum.css'/>
         <link rel="stylesheet" href="canvas/css.css">
         <title>Cakin' It</title>
@@ -139,32 +139,45 @@
                 <div class="container">
                     <h2 ng-if="ctrl.loggedIn">{{ ctrl.welcome }} {{ ctrl.user.username | uppercase }} </h2>
                     <div class="">
-                        <button class="btn" type="button" ng-if="ctrl.loggedIn" ng-model="new" ng-click="ctrl.creation();">Create a cake</button>
+                        <!--CREATION-->
+                        <h3>Add a cake to our gallery</h3>
+                        <div class="" id="usersGallery">
+                            <form ng-submit="ctrl.addACake(newCake)">
+                                <input type="text" ng-model="ctrl.newCake.title" placeholder="Cake Title"/>
+                                <input type="text" ng-model="ctrl.newCake.img" placeholder="Cake Image URL"/>
+                                <input type="text" ng-model="ctrl.newCake.description" placeholder="Keywords"/>
+                                <input type="submit" name="" value="submit">
+
+                                <h4>{{ ctrl.user.username }}'s Gallery</h4>
+
+                                <div ng-repeat="addACake in ctrl.addACake">
+                                    <ul>
+                                        <li>{{ addACake.title }}</li>
+                                        <img src="{{ addACake.img }}" style="width:300px;height:300px;">
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- <button class="btn" type="button" data-target=""ng-model="new" ng-if="ctrl.loggedIn" >Create a cake</button>
+                        <div ng-if="ctrl.creation"  id="canvas">
+                             <button type="button" ng-show="new" ng-click="ctrl.creation();">Add your new cake to your gallery</button>
+                             <div ng-include="ctrl.toCreation" ng-show="new" class=""></div>
+                        </div> -->
+                        <!-- LOGOUT -->
                         <button class="btn" type="button"><a href="#home" ng-click="ctrl.logout();">Log Out</a></button>
-
+                        <!-- DELETE USER -->
                         <button id="delete" class="btn" ng-click="ctrl.deleteUser();">Delete Account</button>
-                        <button class="btn" type="button" ng-click="ctrl.editUser();">Edit Account</button>
-                        <form ng-if="ctrl.editUser" ng-model="editUser">
-                            <input type="text" name="username" value="{{ ctrl.user.username }}">
-                            <input type="submit" ng-model="editUser" value="Enter"/>
-                        </form>
+                        <!-- EDIT USER -->
+                        <!-- <button class="btn" type="button">Edit Account</button>
+                        <form ng-submit="ctrl.editUser(newUsername)"  id="editUser">
+                            <input type="text" ng-model="newUsername.username" value="{{ ctrl.user.username }}">
+                            <input type="submit"  value="Enter"/>
+                        </form> -->
                     </div>
-                    <div ng-include="'canvas/index.html'" class="container"></div>
+                    <!-- <div ng-include="'canvas/index.html'" class="container"></div> -->
 
-                    <div ng-if="ctrl.creation" ng-show="new">
-                         <div ng-include="'canvas/index.html'" class="container"></div>
-                         <!-- <button class="btn" type="button" ng-click="ctrl.editCreation();">Edit Account</button>
-                         <form ng-if="ctrl.editCreation" ng-model="editUser">
-                             <input type="text" name="title" placeholder="Creation Title">
-                             <input type="submit" value="Enter"/>
-                         </form> -->
-                    </div>
-                    <div ng-repeat="gallery in ctrl.gallery">
-                        <ul>
-                            <li>{{ cake.title }}</li>
-                            <img src="{{ cake.img }}" style="width:300px;height:300px;">
-                        </ul>
-                    </div>
+
+
 <!-------------------------- CREATION BUTTON ----------------------------------->
 
                 </div>

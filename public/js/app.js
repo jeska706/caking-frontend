@@ -6,9 +6,7 @@ var app = angular.module('cakinItApp', []);
 
 //-----------Main Controller----------------
 app.controller('mainController', ['$http', function($http){
-    // this.message = "Main controller connected"
     var controller = this;
-    // console.log(controller);
     this.url = 'http://localhost:3000'
     this.user = {};
     this.users = [];
@@ -18,6 +16,9 @@ app.controller('mainController', ['$http', function($http){
     this.wrongMessage = "Nope, Try Again!";
     this.newCreations = {};
     this.myGallery = {};
+
+
+    this.toCreation = "canvas/index.html"
 
     //----------Register---------------
     this.registered = false;
@@ -89,20 +90,22 @@ app.controller('mainController', ['$http', function($http){
         // console.log(this.currentUser);
     }
     //---------------Edit User---------------
-    this.editUser = function(){
-        console.log('edit route');
-        $http({
-            method: 'PUT',
-            url: controller.url + "/users/" + this.user.id,
-            data: this.newUser
-            // headers: {
-            //     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-            // }
-        }).then(function(res){
-            console.log(res)
-            this.user = res.data
-        }.bind(this));
-    }
+    // this.newUsername = {};
+    // this.editUser = function(newUsername){
+    //     console.log('edit route');
+    //     console.log(newUsername);
+    //     $http({
+    //         method: 'PUT',
+    //         url: controller.url + "/users/" + this.user.id,
+    //         data: { username: newUsername.username }
+    //         // headers: {
+    //         //     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+    //         // }
+    //     }).then(function(res){
+    //         console.log(res);
+    //         // this.newUsername = res.data
+    //     }.bind(this));
+    // }
 
     //--------------Delete User----------
 
@@ -123,57 +126,52 @@ app.controller('mainController', ['$http', function($http){
 
     //------------Creation route--------
 
-    this.creation = function(){
-        console.log("create route");
-
-        $http({
-            method: "POST",
-            url: controller.url + "/users/" + this.user.id + "/creations/",
-            headers: {
-                Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-            },
-            data: {
-                title: this.title,
-                user_id: this.user.id
-                //,
-                //cake: '/cakes/'
-            }
-        }).then(function(res){
-            console.log(res);
-            this.newCreations = res.data;
-            console.log(this.newCreations);
-        }.bind(this));
-    }
+    // this.creation = function(){
+    //     console.log("create route");
+    //
+    //     $http({
+    //         method: "POST",
+    //         url: controller.url + "/users/" + this.user.id + "/creations/",
+    //         headers: {
+    //             Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+    //         },
+    //         data: {
+    //             title: this.title,
+    //             user_id: this.user.id
+    //             //,
+    //             //cake: '/cakes/'
+    //         }
+    //     }).then(function(res){
+    //         console.log(res);
+    //         this.newCreations = res.data;
+    //         console.log(this.newCreations);
+    //     }.bind(this));
+    // }
     //-------------Gallery---------------------
-    this.gallery = function(){
-        console.log("Gallery route");
-
-        $http({
-            method: 'GET',
-            url: controller.url + '/galleries/',
-            headers: {
-                Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-            }
-        }).then(function(res){
-            console.log(res.data);
-            this.myGallery = res.data;
-            this.cake = res.data.title;
-            this.img = res.data.img;
-        },function(res){
-            controller.err = res.data;
-            console.log('this is a gallery error: ', controller.err);
-        }.bind(this));
-    }
+    // this.gallery = function(){
+    //     console.log("Gallery route");
+    //
+    //     $http({
+    //         method: 'GET',
+    //         url: controller.url + '/galleries/',
+    //         headers: {
+    //             Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+    //         }
+    //     }).then(function(res){
+    //         console.log(res.data);
+    //         this.myGallery = res.data;
+    //         this.cake = res.data.title;
+    //         this.img = res.data.img;
+    //     },function(res){
+    //         controller.err = res.data;
+    //         console.log('this is a gallery error: ', controller.err);
+    //     }.bind(this));
+    // }
 
     //------------Cake Hit--------------
     $http({
         method: 'GET',
         url: this.url + '/cakes'
-        //,
-        // headers: {
-        //     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-        // },
-        // data: this.cake
 
     }).then(function(res){
         // console.log(res);
@@ -184,6 +182,28 @@ app.controller('mainController', ['$http', function($http){
         controller.err = res.data;
         console.log(controller.err);
     }.bind(this));
+    //---------------ADD A CAKE---------------
+    this.newCake = {};
+    this.addACake = function(newCake){
+        console.log("create route");
 
-
+        $http({
+            method: "POST",
+            url: controller.url + "/users/" + this.user.id + "/creations",
+            headers: {
+                Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+            },
+            data: {
+                creation: {
+                    title: this.newCake.title,
+                    user_id: this.user.id,
+                    url: this.newCake.url,
+                    img: this.newCake.img
+                }
+            }
+        }).then(function(res){
+            console.log(res);
+            this.newCake = res.data
+        }.bind(this));
+    }
 }]);//------End of Main Controller----------
