@@ -16,8 +16,6 @@ app.controller('mainController', ['$http', function($http){
     this.wrongMessage = "Nope, Try Again!";
     this.newCreations = {};
     this.myGallery = {};
-
-
     this.toCreation = "canvas/index.html"
 
     //----------Register---------------
@@ -153,7 +151,7 @@ app.controller('mainController', ['$http', function($http){
     //------------Cake Hit--------------
     $http({
         method: 'GET',
-        url: this.url + '/cakes'
+        url: controller.url + '/cakes'
 
     }).then(function(res){
         console.log(res);
@@ -164,6 +162,8 @@ app.controller('mainController', ['$http', function($http){
         controller.err = res.data;
         console.log(controller.err);
     }.bind(this));
+
+
     //---------------ADD A CAKE---------------
     this.newCake = {};
     this.addACake = function(newCake){
