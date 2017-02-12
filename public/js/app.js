@@ -165,10 +165,10 @@ app.controller('mainController', ['$http', function($http){
 
 
     //---------------ADD A CAKE---------------
-    this.creation = {};
+    this.newCake = {};
     this.addACake = function(newCake){
         console.log("create route");
-
+        console.log(this.newCake);
         $http({
             method: "POST",
             url: controller.url + "/users/" + this.user.id + "/creations/" + this.creation_id + "/cakes",
