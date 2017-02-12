@@ -165,27 +165,46 @@ app.controller('mainController', ['$http', function($http){
 
 
     //---------------ADD A CAKE---------------
-    this.newCake = {};
+    this.creation = {};
     this.addACake = function(newCake){
         console.log("create route");
 
         $http({
             method: "POST",
-            url: controller.url + "/users/" + this.user.id + "/creations",
+            url: controller.url + "/users/" + this.user.id + "/creations/" + this.creation_id + "/cakes",
             headers: {
                 Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
             },
             data: {
-                creation: {
-                    title: this.newCake.title,
-                    user_id: this.user.id,
-                    url: this.newCake.url,
-                    img: this.newCake.img
-                }
+                title: newCake.title,
+                img: newCake.img,
+                description: newCake.description
+                // creation: {
+                    // cake: this.newCake,
+                    // title: this.newCake.title,
+                    // user_id: this.user.id,
+                    // url: this.newCake.url,
+                    // img: this.newCake.img,
+                    // description: this.newCake.description,
+                    // tag: this.newCake.description
+                    // cake: {
+                    //     title: newCake.title,
+                    //     img: newCake.img,
+                    //     description: newCake.description
+                    // }
+                // },
+                // cake: {
+                //     title: newCake.title,
+                //     img: newCake.img,
+                //     description: newCake.description
+                // }
+
             }
         }).then(function(res){
             console.log(res);
             this.newCake = res.data
+            this.newCake.title = res.data.title;
+            console.log(this.newCake.title);
         }.bind(this));
     }
 }]);//------End of Main Controller----------

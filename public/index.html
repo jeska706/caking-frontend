@@ -138,36 +138,37 @@
             <div id="users" ng-if="ctrl.loggedIn">
                 <div class="container">
                     <h2 ng-if="ctrl.loggedIn">{{ ctrl.welcome }} {{ ctrl.user.username | uppercase }} </h2>
+                    <!-- LOGOUT -->
+                    <button class="btn" type="button"><a href="#home" ng-click="ctrl.logout();">Log Out</a></button>
+                    <!-- DELETE USER -->
+                    <button id="delete" class="btn" ng-click="ctrl.deleteUser();">Delete Account</button>
+                    <!-- EDIT USER -->
                     <div class="">
                         <!--CREATION-->
                         <h3>Add a cake to our gallery</h3>
                         <div class="" id="usersGallery">
-                            <form ng-submit="ctrl.addACake(newCake)">
-                                <input type="text" ng-model="ctrl.newCake.title" placeholder="Cake Title"/>
-                                <input type="text" ng-model="ctrl.newCake.img" placeholder="Cake Image URL"/>
-                                <input type="text" ng-model="ctrl.newCake.description" placeholder="Keywords"/>
-                                <input type="submit" name="" value="submit">
-
+                            <div class="">
+                                <form ng-submit="ctrl.addACake(newCake)">
+                                    <input type="text" ng-model="newCake.title" placeholder="Cake Title"/>
+                                    <input type="text" ng-model="newCake.img" placeholder="Cake Image URL"/>
+                                    <input type="text" ng-model="newCake.description" placeholder="Keywords"/>
+                                    <input type="submit" name="" value="submit">
+                                </form>
                                 <h4>{{ ctrl.user.username }}'s Gallery</h4>
-
-                                <div ng-repeat="addACake in ctrl.addACake">
+                                <div ng-repeat="newCake in ctrl.newCake">
                                     <ul>
-                                        <li>{{ addACake.title }}</li>
-                                        <img src="{{ addACake.img }}" style="width:300px;height:300px;">
+                                        <li>{{ newCake.title }}</li>
+                                        <img src="{{ newCake.img }}" style="width:300px;height:300px;">
                                     </ul>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                         <!-- <button class="btn" type="button" data-target=""ng-model="new" ng-if="ctrl.loggedIn" >Create a cake</button>
                         <div ng-if="ctrl.creation"  id="canvas">
                              <button type="button" ng-show="new" ng-click="ctrl.creation();">Add your new cake to your gallery</button>
                              <div ng-include="ctrl.toCreation" ng-show="new" class=""></div>
                         </div> -->
-                        <!-- LOGOUT -->
-                        <button class="btn" type="button"><a href="#home" ng-click="ctrl.logout();">Log Out</a></button>
-                        <!-- DELETE USER -->
-                        <button id="delete" class="btn" ng-click="ctrl.deleteUser();">Delete Account</button>
-                        <!-- EDIT USER -->
+
                         <!-- <button class="btn" type="button">Edit Account</button>
                         <form ng-submit="ctrl.editUser(newUsername)"  id="editUser">
                             <input type="text" ng-model="newUsername.username" value="{{ ctrl.user.username }}">
@@ -202,7 +203,7 @@
                     <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
                         <h3>{{ cake.title }}</h3>
                         <img class="img-responsive img-circle" src="{{ cake.img }}" style="width:300px;height:300px;"/><br>
-                        <form ng-submit="ctrl.gallery()" ng-model="gallery">
+                        <form ng-submit="ctrl.addACake()" ng-model="gallery">
                             <button type="submit" name="button">Add to your gallery</button>
                         </form>
                     </div>
