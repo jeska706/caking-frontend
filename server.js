@@ -4,12 +4,12 @@ var mongoose = require('mongoose');
 var port    = 2043 || process.env.PORT;
 
 
-var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/cakin_it_app_frontend';
-mongoose.connect(mongoUri);
-
-mongoose.connection.once('open', function(){
-    console.log('connected to mongod');
-});
+// var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:20717/cakin_it_app_frontend';
+// mongoose.connect(mongoUri);
+//
+// mongoose.connection.once('open', function(){
+//     console.log('connected to mongod');
+// });
 
 app.use(express.static('public'));
 
