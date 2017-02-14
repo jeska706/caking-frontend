@@ -66,7 +66,7 @@ app.controller('mainController', ['$http', function($http){
             this.userPass = {};
         }.bind(this));
     }
-
+     //---------Get current user----------
     this.getUsers = function() {
         $http({
             method: 'GET',
@@ -78,7 +78,7 @@ app.controller('mainController', ['$http', function($http){
             console.log(res);
         }.bind(this));
     }
-
+    //----------------Logout--------------
     this.logout = function(){
         this.loggedIn = false;
         localStorage.clear('token');
@@ -123,12 +123,12 @@ app.controller('mainController', ['$http', function($http){
     }
 
     //------------Creation route--------
-
+    //
     // this.creation = function(){
     //     console.log("create route");
     //
     //     $http({
-    //         method: "POST",
+    //         method: "GET",
     //         url: controller.url + "/users/" + this.user.id + "/creations/",
     //         headers: {
     //             Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
@@ -145,10 +145,52 @@ app.controller('mainController', ['$http', function($http){
     //         console.log(this.newCreations);
     //     }.bind(this));
     // }
+    // this.newCake = {};
+    // this.addACake = function(newCake){
+    //     console.log("create route");
+    //     console.log(this.newCake);
+    //     $http({
+    //         method: "POST",
+    //         url: controller.url + "/users/" + this.user.id + '/creations',
+    //         headers: {
+    //             Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+    //         },
+    //         data: {
+    //             creation: {
+    //                 title: newCake.title,
+    //                 user_id: this.user.id,
+    //                 cake_id: newCake.id,
+    //                 img: newCake.img,
+    //                 tags: newCake.description,
+    //                 description: newCake.description,
+    //             }
+    //         }
+    //     }).then(function(res){
+    //         console.log(res);
+    //         this.newCake = res.data
+    //         this.newCake.title = res.data.title;
+    //         console.log(this.newCake.title);
+    //
+    //         this.userGallery = {};
+    //         this.toGallery = function(){
+    //             console.log("gallery route");
+    //             $http({
+    //                 method: "GET",
+    //                 url: controller.url + "/users/" + this.user.id + '/creations/'
+    //             }).then(function(res){
+    //                 console.log(res);
+    //                 this.userGallery = res.data;
+    //             }.bind(this));
+    //         }
+    //     }.bind(this));
+    // }
+
+
     //-------------Gallery---------------------
 
 
     //------------Cake Hit--------------
+
     $http({
         method: 'GET',
         url: controller.url + '/cakes'
@@ -165,20 +207,29 @@ app.controller('mainController', ['$http', function($http){
 
 
     //---------------ADD A CAKE---------------
+    //   This route works but pushes into the cakes array so full array shows on /cakes
+
     this.newCake = {};
     this.addACake = function(newCake){
         console.log("create route");
         console.log(this.newCake);
         $http({
             method: "POST",
-            url: controller.url + "/users/" + this.user.id + "/creations/" + this.creation_id + "/cakes",
+            url: controller.url + "/users/" + this.user.id + "/cakes",
             headers: {
                 Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
             },
             data: {
-                title: newCake.title,
-                img: newCake.img,
-                description: newCake.description
+                user: {
+                    cake: {
+                        title: newCake.title,
+                        img: newCake.img,
+                        description: newCake.description,
+                        user_id: newCake.user_id
+                    }
+
+                }
+
                 // creation: {
                     // cake: this.newCake,
                     // title: this.newCake.title,
@@ -205,6 +256,23 @@ app.controller('mainController', ['$http', function($http){
             this.newCake = res.data
             this.newCake.title = res.data.title;
             console.log(this.newCake.title);
+
+            this.userGallery = {};
+            this.toGallery = function(){
+                console.log("gallery route");
+                $http({
+                    method: "GET",
+                    url: controller.url + '/users/' + this.user.id + '/cakes/'
+                }).then(function(res){
+                    console.log(res);
+                    this.userGallery = res.data;
+                }.bind(this));
+            }
+
+
+
+
+
         }.bind(this));
     }
 }]);//------End of Main Controller----------
