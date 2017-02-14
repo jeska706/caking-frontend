@@ -152,14 +152,18 @@
                                     <input type="text" ng-model="newCake.title" placeholder="Cake Title"/>
                                     <input type="text" ng-model="newCake.img" placeholder="Cake Image URL"/>
                                     <input type="text" ng-model="newCake.description" placeholder="Keywords"/>
-                                    <input type="submit" name="" value="submit">
+                                    <input type="submit" name="" value="submit" >
                                 </form>
                                 <h4>{{ ctrl.user.username }}'s Gallery</h4>
-                                <div ng-repeat="newCake in ctrl.newCake">
-                                    <ul>
-                                        <li>{{ newCake.title }}</li>
-                                        <img src="{{ newCake.img }}" style="width:300px;height:300px;">
-                                    </ul>
+
+                                <div class="">
+                                    <button type="button" ng-click="ctrl.toGallery();">View your gallery</button>
+                                    <div ng-if="toGallery" ng-repeat="userGallery in ctrl.userGallery">
+                                        <ul>
+                                            <li>{{ userGallery.title }}</li>
+                                            <img src="{{ userGallery.img }}" style="width:300px;height:300px;">
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
