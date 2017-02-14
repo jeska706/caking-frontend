@@ -66,7 +66,7 @@ app.controller('mainController', ['$http', function($http){
             this.userPass = {};
         }.bind(this));
     }
-
+    //---------Get current user----------
     this.getUsers = function() {
         $http({
             method: 'GET',
@@ -78,34 +78,16 @@ app.controller('mainController', ['$http', function($http){
             console.log(res);
         }.bind(this));
     }
-
+    //----------------Logout--------------
     this.logout = function(){
         this.loggedIn = false;
         localStorage.clear('token');
         this.currentUser = {};
         location.reload();
-        // this.currentUser = {};
-        // console.log(this.currentUser);
     }
-    //---------------Edit User---------------
-    // this.newUsername = {};
-    // this.editUser = function(newUsername){
-    //     console.log('edit route');
-    //     console.log(newUsername);
-    //     $http({
-    //         method: 'PUT',
-    //         url: controller.url + "/users/" + this.user.id,
-    //         data: { username: newUsername.username }
-    //         // headers: {
-    //         //     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-    //         // }
-    //     }).then(function(res){
-    //         console.log(res);
-    //         // this.newUsername = res.data
-    //     }.bind(this));
-    // }
 
-    //--------------Delete User----------
+
+    //--------------Delete User-------------
 
     this.deleteUser = function(){
 
@@ -123,6 +105,8 @@ app.controller('mainController', ['$http', function($http){
     }
 
     //------------Creation route--------
+    //
+    //Not working but I think this is the preferred route
 
     // this.creation = function(){
     //     console.log("create route");
@@ -145,6 +129,8 @@ app.controller('mainController', ['$http', function($http){
     //         console.log(this.newCreations);
     //     }.bind(this));
     // }
+
+
     //-------------Gallery---------------------
 
 
@@ -164,7 +150,50 @@ app.controller('mainController', ['$http', function($http){
     }.bind(this));
 
 
-    //---------------ADD A CAKE---------------
+    // 
+    // this.newCake = {};
+    // this.addACake = function(newCake){
+    //     console.log("create route");
+    //     console.log(this.newCake);
+    //     $http({
+    //         method: "POST",
+    //         url: controller.url + "/users/" + this.user.id + '/creations',
+    //         headers: {
+    //             Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+    //         },
+    //         data: {
+    //             creation: {
+    //                 title: newCake.title,
+    //                 user_id: this.user.id,
+    //                 cake_id: newCake.id,
+    //                 img: newCake.img,
+    //                 tags: newCake.description,
+    //                 description: newCake.description,
+    //             }
+    //         }
+    //     }).then(function(res){
+    //         console.log(res);
+    //         this.newCake = res.data
+    //         this.newCake.title = res.data.title;
+    //         console.log(this.newCake.title);
+    //
+    //         this.userGallery = {};
+    //         this.toGallery = function(){
+    //             console.log("gallery route");
+    //             $http({
+    //                 method: "GET",
+    //                 url: controller.url + "/users/" + this.user.id + '/creations/'
+    //             }).then(function(res){
+    //                 console.log(res);
+    //                 this.userGallery = res.data;
+    //             }.bind(this));
+    //         }
+    //     }.bind(this));
+    // }
+
+
+
+//   This route works but pushes into the cakes array so full array shows on /cakes
     this.newCake = {};
     this.addACake = function(newCake){
         console.log("create route");
@@ -179,32 +208,86 @@ app.controller('mainController', ['$http', function($http){
                 title: newCake.title,
                 img: newCake.img,
                 description: newCake.description
-                // creation: {
-                    // cake: this.newCake,
-                    // title: this.newCake.title,
-                    // user_id: this.user.id,
-                    // url: this.newCake.url,
-                    // img: this.newCake.img,
-                    // description: this.newCake.description,
-                    // tag: this.newCake.description
-                    // cake: {
-                    //     title: newCake.title,
-                    //     img: newCake.img,
-                    //     description: newCake.description
-                    // }
-                // },
-                // cake: {
-                //     title: newCake.title,
-                //     img: newCake.img,
-                //     description: newCake.description
-                // }
-
             }
         }).then(function(res){
             console.log(res);
             this.newCake = res.data
             this.newCake.title = res.data.title;
             console.log(this.newCake.title);
+
+            this.userGallery = {};
+            this.toGallery = function(){
+                console.log("gallery route");
+                $http({
+                    method: "GET",
+                    url: controller.url + '/users/' + this.user.id + '/creations/' + this.creation_id + '/cakes'
+                }).then(function(res){
+                    console.log(res);
+                    this.userGallery = res.data;
+                }.bind(this));
+            }
+
         }.bind(this));
+
     }
+
+
+    //------------Gallery--------------------
+
+    // this.userGallery = {};
+    // this.toGallery = function(userGallery){
+    //     console.log(this.userGallery);
+    //     console.log("gallery route");
+    //     $http({
+    //         method: "GET",
+    //         url: controller.url + '/users/' + this.user.id + '/creations/' + this.creation_id + '/cakes',
+    //
+    //     }).then(function(res){
+    //         console.log(res);
+    //         this.userGallery = res.data;
+    //     }.bind(this));
+    // }
+    // //---------------ADD A CAKE---------------
+    // this.newCake = {};
+    // this.addACake = function(newCake){
+    //     console.log("create route");
+    //     console.log(this.newCake);
+    //     $http({
+    //         method: "POST",
+    //         url: controller.url + "/users/" + this.user.id + "/creations" ,
+    //         headers: {
+    //             Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+    //         },
+    //         data: {
+    //             cake:  {
+    //                 title: newCake.title,
+    //                 img: newCake.img,
+    //                 description: newCake.description
+    //             }
+    //         }
+    //     }).then(function(res){
+    //         console.log(res);
+    //         this.newCake = res.data
+    //         this.newCake.title = res.data.title;
+    //         console.log(this.newCake.title);
+    //     }.bind(this));
+
+    //---------------Edit User---------------
+    // this.newUsername = {};
+    // this.editUser = function(newUsername){
+    //     console.log('edit route');
+    //     console.log(newUsername);
+    //     $http({
+    //         method: 'PUT',
+    //         url: controller.url + "/users/" + this.user.id,
+    //         data: { username: newUsername.username }
+    //         // headers: {
+    //         //     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+    //         // }
+    //     }).then(function(res){
+    //         console.log(res);
+    //         // this.newUsername = res.data
+    //     }.bind(this));
+    // }
+
 }]);//------End of Main Controller----------
