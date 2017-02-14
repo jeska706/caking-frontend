@@ -155,12 +155,14 @@
                                     <input type="submit" name="" value="submit">
                                 </form>
                                 <h4>{{ ctrl.user.username }}'s Gallery</h4>
-                                <div ng-repeat="newCake in ctrl.newCake">
-                                    <ul>
-                                        <li>{{ newCake.title }}</li>
-                                        <img src="{{ newCake.img }}" style="width:300px;height:300px;">
-                                    </ul>
-                                </div>
+                                <button type="button" ng-click="ctrl.toGallery();">View your gallery</button>
+                                    <div ng-if="toGallery" ng-repeat="userGallery in ctrl.userGallery ">
+                                        <!-- | filter: {{ user_id: userGallery.user_id }}  -->
+                                        <ul>
+                                            <li>{{ userGallery.title }}</li>
+                                            <img src="{{ userGallery.img }}" style="width:300px;height:300px;">
+                                        </ul>
+                                    </div>
                             </div>
                         </div>
                         <!-- <button class="btn" type="button" data-target=""ng-model="new" ng-if="ctrl.loggedIn" >Create a cake</button>
