@@ -221,13 +221,20 @@ app.controller('mainController', ['$http', function($http){
             },
             data: {
                 user: {
-                    cake: {
-                        title: newCake.title,
-                        img: newCake.img,
-                        description: newCake.description,
-                        user_id: newCake.user_id
-                    }
+                    username: this.username, password: this.password,
+                    // cake: {
+                    //     title: newCake.title,
+                    //     img: newCake.img,
+                    //     description: newCake.description,
+                    //     user_id: newCake.user_id
+                    // }
 
+                },
+                cake: {
+                    title: newCake.title,
+                    img: newCake.img,
+                    description: newCake.description,
+                    user_id: newCake.user_id
                 }
 
                 // creation: {
