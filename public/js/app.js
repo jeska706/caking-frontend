@@ -7,7 +7,7 @@ var app = angular.module('cakinItApp', []);
 //-----------Main Controller----------------
 app.controller('mainController', ['$http', function($http){
     var controller = this;
-    this.url = 'https://git.heroku.com/caking-api.git'  //'http://localhost:3000'
+    this.URL = 'https://git.heroku.com/caking-api.git'  //'http://localhost:3000'
     this.user = {};
     this.users = [];
     this.userPass = {};
@@ -23,7 +23,7 @@ app.controller('mainController', ['$http', function($http){
     this.register = function(registeredPass){
         $http({
             method: 'POST',
-            url: controller.url + "/users",
+            url: controller.URL + "/users",
             data: { username: registeredPass.username, password: registeredPass.password }
         }).then(function(res){
             console.log('this is registered res: ', res)
@@ -42,7 +42,7 @@ app.controller('mainController', ['$http', function($http){
         console.log(userPass);
         $http({
             method: 'POST',
-            url: controller.url + '/users/login',
+            url: controller.URL + '/users/login',
             data: { username: userPass.username, password: userPass.password },
         }).then(function(res){
             // console.log(controller);
@@ -70,7 +70,7 @@ app.controller('mainController', ['$http', function($http){
     this.getUsers = function() {
         $http({
             method: 'GET',
-            url: controller.url + '/users',
+            url: controller.URL + '/users',
             headers: {
                 Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
             }
@@ -112,7 +112,7 @@ app.controller('mainController', ['$http', function($http){
         console.log('delete route');
         $http({
             method: 'DELETE',
-            url: controller.url + "/users/" + this.user.id,
+            url: controller.URL + "/users/" + this.user.id,
             headers: {
                 Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
             }
@@ -151,7 +151,7 @@ app.controller('mainController', ['$http', function($http){
     //------------Cake Hit--------------
     $http({
         method: 'GET',
-        url: controller.url + '/cakes'
+        url: controller.URL + '/cakes'
 
     }).then(function(res){
         console.log(res);
@@ -171,7 +171,7 @@ app.controller('mainController', ['$http', function($http){
         console.log(this.newCake);
         $http({
             method: "POST",
-            url: controller.url + "/users/" + this.user.id + "/creations/" + this.creation_id + "/cakes",
+            url: controller.URL + "/users/" + this.user.id + "/creations/" + this.creation_id + "/cakes",
             headers: {
                 Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
             },
