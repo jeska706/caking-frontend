@@ -1,0 +1,175 @@
+//Variables
+
+$white: #FFF;
+$darkgray: #666;
+$black: #000;
+$berry: #EC96A4;
+$branch: #5D535E;
+$lavGray: #9A9EAB;
+$limey: #DFE166;
+
+$bannerHeading: 80%;
+@mixin h3Head {
+    font-family: 'Syncopate', sans-serif;
+}
+@mixin banner{
+    // width: 100%;
+    height: 100vh;
+    position:relative;
+    color: $white;
+    margin-bottom: 0;
+    .banner-content{
+        position: absolute;
+        top: 8%;
+        width: 100%
+    }
+    img{
+        width: 100%;
+
+        margin-top: -1%;
+    }
+    span{
+        font-size: $bannerHeading;
+        display: block;
+        font-weight: bold;
+        letter-spacing: .2em;
+        margin-left: 2%;
+        text-shadow: -7px 10px 18px $branch,
+             10px 8px 10px $berry;
+    }
+    span.subtitle{
+        color: $black;
+        margin-bottom: 30px;
+        font-size: 10%;
+        font-weight: bolder;
+        margin-top: 12%
+    }
+}
+*{
+    text-align: center;
+    margin: 0;
+}
+
+.nav{
+    padding: 3%;
+    li{
+        letter-spacing: .5em;
+        font-family: 'Syncopate', sans-serif;
+        a{
+            color: $limey;
+        }
+    }
+    #navSearch{
+        margin-right: 2%;
+        margin-top: 5%;
+    }
+}
+
+.banner{
+    @include banner;
+
+}
+.head{
+    @include h3Head;
+}
+#logo{
+    position: relative;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 12em;
+    color: $limey;
+    background-color: inherit;
+}
+h4{
+    font-family: 'Syncopate', sans-serif;
+    color: $white;
+}
+
+a{
+    text-decoration: none;
+    color: $black;
+    margin-left: 3%;
+}
+
+#modalBtn{
+    margin-left: 5px;
+}
+
+#home{
+    min-height: 100vh;
+}
+#creation{
+    margin: 40px;
+    background-color: $darkgray;
+    height: 500px;
+}
+#about{
+    background-color: $berry;
+    height: 100vh;
+    padding-top: 10%;
+    margin-bottom: -5%;
+    // margin-top: -59%;
+    h3{
+        padding: 5%;
+        font-weight: bolder;
+        letter-spacing: .2em;
+        text-shadow: 3px 3px 18px $lavGray,
+
+    }
+}
+#users{
+    background-color: $berry;
+    height: 100vh;
+}
+#inspireGallery{
+    background-color: $branch;
+    h2{
+        color: $white;
+        padding: 5%;
+        font-weight: bolder;
+        letter-spacing: .2em;
+        text-shadow: -7px 10px 18px $black,
+
+    }
+}
+.gallery{
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+    text-shadow: -7px 10px 18px $black,
+
+}
+.modal {
+  // position: fixed;
+  top: 20%;
+  color: $black;
+    h4, a{
+        color: $black;
+    }
+    h4{
+        font-family: 'Syncopate', sans-serif;
+        font-size: xx-large;
+    }
+    a {
+        font-family: 'Sacramento', cursive;
+        position: relative;
+        top: 7px;
+        left: 4px;
+        letter-spacing: 0.1em;
+        font-size: x-large;
+    }
+    input{
+        background-color: #000;
+        color: #FFF;
+        padding: 20px;
+        border: 4px solid $limey;
+    }
+    .out{
+        background-color: $berry;
+    }
+}
+@media (740px) {
+
+}
