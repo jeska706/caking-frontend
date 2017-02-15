@@ -7,7 +7,7 @@ var app = angular.module('cakinItApp', []);
 //-----------Main Controller----------------
 app.controller('mainController', ['$http', function($http){
     var controller = this;
-    this.url = 'http://localhost:3000'
+    this.url = 'https://git.heroku.com/caking-api.git'  //'http://localhost:3000'
     this.user = {};
     this.users = [];
     this.userPass = {};
