@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="canvas/css.css">
         <title>Cakin' It</title>
     </head>
-    <body ng-controller="mainController as ctrl">
+    <body ng-controller="mainController as ctrl" data-spy="scroll" data-target="#mainNav" data-offset="10">
         <div class="">
 
 <!------------------------------ HOME SECTION ----------------------------------->
@@ -25,7 +25,7 @@
 
 
             <div class=" ">
-                <nav id="mainNav" class="navbar navbar-default navbar-fixed-top ">
+                <nav id="mainNav" class="navbar navbar-inverse nav-tabs navbar-fixed-top ">
                     <div class="">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -33,43 +33,30 @@
                             </button>
                         </div>
                         <div class="navbar-collapse collapse">
-                            <div class="nav navbar-nav">
-                                <a class="navBtn" href="#home">HOME</a>
-                                <a class="navBtn" href="#about">ABOUT</a>
-                                <a class="navBtn" href="#inspireGallery">INSPIRATION GALLERY</a>
-                                <a class="navBtn" href="#users" ng-click="ctrl.getUsers()">YOUR PAGE</a>
-                                <a class="navBtn" href="#findA">FIND A BAKERY</a>
-                                <a class="navBtn" href="#contact">CONTACT US</a>
-                                <form id="navSearch" class="navbar-form pull-right" role="search" action="index.html" method="post">
-                                    <div class="form-group has-feedback navbar-left">
-                                        <input class="form-control" type="text" placeholder="Inspiration Gallery" ng-model="searchCake"/>
-                                        <i class="glyphicon glyphicon-search pull-right form-control-feedback"></i>
-                                    </div>
-                                </form>
-                            </div>
+                            <ul class="nav navbar-nav">
+                                <li><a class="" href="#home">Home</a></li>
+                                <!-- <li><a class="" href="#about">ABOUT</a></li> -->
+                                <li><a class="" href="#inspireGallery">Gallery</a></li>
+                                <!-- <li><a class="" href="#users" ng-click="ctrl.getUsers()">YOUR PAGE</a></li>
+                                <li><a class="" href="#findA">FIND A BAKERY</a></li>
+                                <li><a class="" href="#contact">CONTACT US</a></li> -->
+                                <li><a class="" data-target="#registerModal" data-toggle="modal">Register</a></li>
+                                <li><a class="" data-target="#loginModal" data-toggle="modal" href="#users">Login</a></li>
+                            </ul>
+                            <form id="navSearch" class="navbar-form navbar-left" role="search" action="index.html" method="post">
+                                <div class="form-group has-feedback">
+                                    <input class="form-control" type="text" placeholder="Inspiration Gallery" ng-model="searchCake"/>
+                                    <!-- <i class="glyphicon glyphicon-search pull-right form-control-feedback"></i> -->
+                                    <button type="submit" class="btn btn-default" name="button">Submit</button>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                 </nav>
             </div>
 
             <div class="" id="home">
-                <div id="confirm">
-                    <div id="register">
-                        <div ng-hide="register" >
-                            <button class=" " data-target="#registerModal" data-toggle="modal">Register</a></button>
-                             <!-- ng-if="!ctrl.registered" -->
-                        </div>
-                    </div>
-                    <div id="login">
-                        <div ng-hide="login">
-                            <!-- <button class="" data-target="#loginModal" data-toggle="modal"><a href="#users">Login</a></button> -->
-                            <a class="" data-target="#loginModal" data-toggle="modal" href="#users">Login</a>
-
-                             <!-- ng-if="!ctrl.loggedIn" -->
-
-                        </div>
-                    </div>
-                </div>
 
 <!----------------------------- REGISTER MODAL ------------------------------>
                 <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
