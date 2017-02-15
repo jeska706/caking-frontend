@@ -32,10 +32,38 @@ a{
 
 }*/
 
-#modalBtn{
+/*#modalBtn{
     margin-left: 5px;
 }
-
+.modal {
+  position: fixed;
+  top: 20%;
+  color: #000;
+}
+.modal h4, a{
+    color: #000;
+}
+.modal h4{
+    font-family: 'Syncopate', sans-serif;
+    font-size: xx-large;
+}
+.modal a {
+    font-family: 'Sacramento', cursive;
+    position: relative;
+    top: 7px;
+    left: 4px;
+    letter-spacing: 0.1em;
+    font-size: x-large;
+}
+.modal input{
+    background-color: #000;
+    color: #FFF;
+    padding: 23px;
+    border-color: deeppink;
+}
+.modal .out{
+    background-color: deeppink;
+}*/
 #home{
     min-height: 100vh;
     height: 500px;
