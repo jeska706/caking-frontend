@@ -1,5 +1,7 @@
-#Caking-Frontend
-![mainimage](https://cloud.githubusercontent.com/assets/22794560/23004321/287609aa-f3b3-11e6-97ec-63c4ed8e9ce4.jpg)
+#Caking
+
+![mainbanner](https://cloud.githubusercontent.com/assets/22794560/23006529/b233e1e2-f3bf-11e6-851d-d2c10b2854dc.jpg)
+
 
 <hr>
 
@@ -22,7 +24,6 @@ Future features:
 
 
 
-
 ##Technologies Used
 -   HTML/CSS/JS
 -   AngularJS
@@ -42,7 +43,13 @@ Future features:
 
 
 ##Issues & Bugs
+<<<<<<< HEAD
 [Creation Canvas](https://github.com/jeska706/canvasSVG), which was adapted from [LisaBee224](https://github.com/LisaBee224/coloring_book).
+=======
+[creation canvas repo](https://jeska706.github.io/canvasSVG/), which was adapted from [lisaBee224](https://github.com/LisaBee224/coloring_book).
+>>>>>>> edfe431dd2fd3ff8e47ee4af80a76a90000a9db2
 -   I spent a lot of time researching and developing a cake design canvas, which works perfectly outside of the app, but have not been able to include it currently.
+
 -   Once cake is created unshift function breaks code so page needs to be refreshed to show new added cakes.
+
 -   I set this app up with the intention of having the /cakes route only work as a show route and a separate route was created to store creations into a users gallery from the canvas. Unfortunately, since the canvas/creations route isn't set up I had to merge the added cakes to the /cakes route alone. This created a trickle down effect and hindered my other needed CRUD features.
