@@ -43,11 +43,9 @@ Future features:
 
 
 ##Issues & Bugs
-<<<<<<< HEAD
-[Creation Canvas](https://github.com/jeska706/canvasSVG), which was adapted from [LisaBee224](https://github.com/LisaBee224/coloring_book).
-=======
+
 [creation canvas repo](https://jeska706.github.io/canvasSVG/), which was adapted from [lisaBee224](https://github.com/LisaBee224/coloring_book).
->>>>>>> edfe431dd2fd3ff8e47ee4af80a76a90000a9db2
+
 -   I spent a lot of time researching and developing a cake design canvas, which works perfectly outside of the app, but have not been able to include it currently.
 
 -   Once cake is created unshift function breaks code so page needs to be refreshed to show new added cakes.
