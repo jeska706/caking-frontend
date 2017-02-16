@@ -7,7 +7,8 @@ var app = angular.module('cakinItApp', []);
 //-----------Main Controller----------------
 app.controller('mainController', ['$http', function($http){
     var controller = this;
-    this.url = 'http://localhost:3000'
+    // this.URL = 'http://localhost:3000'
+    this.URL = 'https://caking-api.herokuapp.com/'
     this.user = {};
     this.users = [];
     this.userPass = {};
@@ -17,13 +18,16 @@ app.controller('mainController', ['$http', function($http){
     this.newCreations = {};
     this.myGallery = {};
     this.toCreation = "canvas/index.html"
+    this.viewGallery = false;
+    this.cakes = [];
+
 
     //----------Register---------------
     this.registered = false;
     this.register = function(registeredPass){
         $http({
             method: 'POST',
-            url: controller.url + "/users",
+            url: controller.URL + "/users",
             data: { username: registeredPass.username, password: registeredPass.password }
         }).then(function(res){
             console.log('this is registered res: ', res)
@@ -42,7 +46,7 @@ app.controller('mainController', ['$http', function($http){
         console.log(userPass);
         $http({
             method: 'POST',
-            url: controller.url + '/users/login',
+            url: controller.URL + '/users/login',
             data: { username: userPass.username, password: userPass.password },
         }).then(function(res){
             // console.log(controller);
@@ -70,7 +74,7 @@ app.controller('mainController', ['$http', function($http){
     this.getUsers = function() {
         $http({
             method: 'GET',
-            url: controller.url + '/users',
+            url: controller.URL + '/users',
             headers: {
                 Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
             }
@@ -112,7 +116,7 @@ app.controller('mainController', ['$http', function($http){
         console.log('delete route');
         $http({
             method: 'DELETE',
-            url: controller.url + "/users/" + this.user.id,
+            url: controller.URL + "/users/" + this.user.id,
             headers: {
                 Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
             }
@@ -151,7 +155,7 @@ app.controller('mainController', ['$http', function($http){
     //------------Cake Hit--------------
     $http({
         method: 'GET',
-        url: controller.url + '/cakes'
+        url: controller.URL + '/cakes'
 
     }).then(function(res){
         console.log(res);
@@ -163,15 +167,35 @@ app.controller('mainController', ['$http', function($http){
         console.log(controller.err);
     }.bind(this));
 
+    // NOT WORKING
+
+    // this.viewGallery = function(){
+    //
+    //     console.log("gallery shout route");
+    //     $http({
+    //         method: 'GET',
+    //         url: controller.URL + '/cakes'
+    //
+    //     }).then(function(res){
+    //         console.log(res);
+    //         this.viewGallery = true;
+    //         // console.log('this is this: ', controller);
+    //         controller.cakes = res.data;
+    //         console.log(controller.cakes);
+    //     },function(res){
+    //         controller.err = res.data;
+    //         console.log(controller.err);
+    //     }.bind(this));
+    // }
 
     //---------------ADD A CAKE---------------
-    this.creation = {};
+    this.newCake = {};
     this.addACake = function(newCake){
         console.log("create route");
-
+        console.log(this.newCake);
         $http({
             method: "POST",
-            url: controller.url + "/users/" + this.user.id + "/creations/" + this.creation_id + "/cakes",
+            url: controller.URL + "/users/" + this.user.id + "/creations/" + this.creation_id + "/cakes",
             headers: {
                 Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
             },
@@ -204,6 +228,8 @@ app.controller('mainController', ['$http', function($http){
             console.log(res);
             this.newCake = res.data
             this.newCake.title = res.data.title;
+            // this.newCake = {};
+            // this.newCake.unshift(res.data);
             console.log(this.newCake.title);
         }.bind(this));
     }
