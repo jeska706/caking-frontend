@@ -4,9 +4,12 @@
 <hr>
 
 This project is the idea I came to General Assembly with. It's not fully functional but once completed it will be a full CRUD cake inspiration application.
+Live sign [Heroku](https://caking.herokuapp.com/), buggy issues
+[Backend Repo site](https://github.com/jeska706/caking-app-backend), [hosted link](https://caking-api.herokuapp.com/)
 
 ##Project Inspiration/Theme
-![screen shot 2017-02-15 at 9 50 36 am](https://cloud.githubusercontent.com/assets/22794560/23004195/9761fc30-f3b2-11e6-945b-a9fc2c4c1a23.png)
+![theme](https://cloud.githubusercontent.com/assets/22794560/23006155/6d855c80-f3bd-11e6-950a-715dff08d735.jpg)
+![splash](https://cloud.githubusercontent.com/assets/22794560/23004936/9e76c7fe-f3b6-11e6-8793-fc703be157de.jpg)
 
 
 
@@ -18,7 +21,7 @@ Future features:
 -   A user view their gallery, edit their gallery, delete design off their gallery
 
 
-![splash](https://cloud.githubusercontent.com/assets/22794560/23004936/9e76c7fe-f3b6-11e6-8793-fc703be157de.jpg)
+
 
 ##Technologies Used
 -   HTML/CSS/JS
