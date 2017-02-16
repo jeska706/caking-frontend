@@ -42,6 +42,7 @@ Future features:
 
 
 ##Issues & Bugs
+[Creation Canvas](https://github.com/jeska706/canvasSVG), which was adapted from [LisaBee224](https://github.com/LisaBee224/coloring_book).
 -   I spent a lot of time researching and developing a cake design canvas, which works perfectly outside of the app, but have not been able to include it currently.
 -   Once cake is created unshift function breaks code so page needs to be refreshed to show new added cakes.
 -   I set this app up with the intention of having the /cakes route only work as a show route and a separate route was created to store creations into a users gallery from the canvas. Unfortunately, since the canvas/creations route isn't set up I had to merge the added cakes to the /cakes route alone. This created a trickle down effect and hindered my other needed CRUD features.
