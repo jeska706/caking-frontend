@@ -41,13 +41,13 @@ Future features:
 -   google maps api for bakery search
 -   Auto refresh on data
 
-
-##Issues & Bugs
-
-[creation canvas repo](https://jeska706.github.io/canvasSVG/), which was adapted from [lisaBee224](https://github.com/LisaBee224/coloring_book).
-
+##Creation Canvas
+[Creation Canvas](https://github.com/jeska706/canvasSVG), which was adapted from [LisaBee224](https://github.com/LisaBee224/coloring_book).
+<img width="629" alt="screen shot 2017-02-15 at 9 31 51 pm" src="https://cloud.githubusercontent.com/assets/22794560/23007508/5cebe6e2-f3c6-11e6-8505-96ea83b0d7d7.png">
 -   I spent a lot of time researching and developing a cake design canvas, which works perfectly outside of the app, but have not been able to include it currently.
 
+
+##Issues & Bugs
 -   Once cake is created unshift function breaks code so page needs to be refreshed to show new added cakes.
 
 -   I set this app up with the intention of having the /cakes route only work as a show route and a separate route was created to store creations into a users gallery from the canvas. Unfortunately, since the canvas/creations route isn't set up I had to merge the added cakes to the /cakes route alone. This created a trickle down effect and hindered my other needed CRUD features.
