@@ -59,10 +59,10 @@
     font-size: 1.5em;
     background-color: #9A9EAB;
     width: 100%;
-    margin-top: 7%;
+    margin-top: 5%;
     margin-right: 0;
     margin-left: 0;
-    padding: 2em; }
+    padding: 4em; }
 
 h4 {
   font-family: 'Syncopate', sans-serif;
@@ -94,7 +94,6 @@ a {
     letter-spacing: .1em;
     margin-bottom: -2%; }
   #about ul {
-    padding-top: 10%;
     padding-bottom: 20%; }
   #about .list {
     list-style: none;
