@@ -1,5 +1,6 @@
 #Caking-Frontend
-![mainimage](https://cloud.githubusercontent.com/assets/22794560/23004321/287609aa-f3b3-11e6-97ec-63c4ed8e9ce4.jpg)
+![mainbanner](https://cloud.githubusercontent.com/assets/22794560/23006529/b233e1e2-f3bf-11e6-851d-d2c10b2854dc.jpg)
+
 
 <hr>
 
