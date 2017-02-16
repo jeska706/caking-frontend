@@ -6,7 +6,7 @@
 <hr>
 
 This project is the idea I came to General Assembly with. It's not fully functional but once completed it will be a full CRUD cake inspiration application.
--   [Live sign](https://caking.herokuapp.com/), buggy issues due to imgur
+-   [Live site](https://caking.herokuapp.com/), buggy issues due to imgur
 -   [Backend Repo site](https://github.com/jeska706/caking-app-backend)
 -   [hosted link](https://caking-api.herokuapp.com/)
 
