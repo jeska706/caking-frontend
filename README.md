@@ -42,7 +42,7 @@ This project is the idea I came to General Assembly with. It's not fully functio
 ##Creation Canvas
 [Creation Canvas](https://github.com/jeska706/canvasSVG), which was adapted from [LisaBee224](https://github.com/LisaBee224/coloring_book).
 <img width="629" alt="screen shot 2017-02-15 at 9 31 51 pm" src="https://cloud.githubusercontent.com/assets/22794560/23007508/5cebe6e2-f3c6-11e6-8505-96ea83b0d7d7.png">
--   I spent a lot of time researching and developing a cake design canvas, which works perfectly outside of the app, but have not been able to include it currently.
+-   Many hours were spent researching, and developing a cake design canvas. Although it works perfectly outside of the app, I have not been able to incorporate it into the app.
 
 
 ##Issues & Bugs
