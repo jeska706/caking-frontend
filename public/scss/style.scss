@@ -8,16 +8,20 @@ $branch: #5D535E;
 $lavGray: #9A9EAB;
 $limey: #DFE166;
 
-$bannerHeading: 80%;
+
+//Mix-ins
 @mixin h3Head {
     font-family: 'Syncopate', sans-serif;
 }
 @mixin banner{
     // width: 100%;
-    height: 100vh;
+    height: 50vh;
     position:relative;
     color: $white;
     margin-bottom: 0;
+    background-color: $lavGray;
+    padding-top: 100px;
+    padding-bottom: 100px;
     .banner-content{
         position: absolute;
         top: 8%;
@@ -25,33 +29,37 @@ $bannerHeading: 80%;
     }
     img{
         width: 100%;
-
         margin-top: -1%;
     }
     span{
-        font-size: $bannerHeading;
         display: block;
         font-weight: bold;
+        width: 100%;
         letter-spacing: .2em;
         margin-left: 2%;
+        margin-top: 15%;
+        font-family: 'Syncopate', sans-serif;
+        color: $limey;
         text-shadow: -7px 10px 18px $branch,
-             10px 8px 10px $berry;
+             10px 8px 15px $berry;
     }
     span.subtitle{
         color: $black;
         margin-bottom: 30px;
         font-size: 10%;
         font-weight: bolder;
-        margin-top: 12%
+
     }
 }
+
+///---------------------------
 *{
     text-align: center;
     margin: 0;
 }
 
 .nav{
-    padding: 3%;
+    padding: 2%;
     li{
         letter-spacing: .5em;
         font-family: 'Syncopate', sans-serif;
@@ -59,7 +67,8 @@ $bannerHeading: 80%;
             color: $limey;
         }
     }
-    #navSearch{
+    input #navSearch{
+
         margin-right: 2%;
         margin-top: 5%;
     }
@@ -67,20 +76,30 @@ $bannerHeading: 80%;
 
 .banner{
     @include banner;
-
 }
+
 .head{
     @include h3Head;
 }
+
 #logo{
-    position: relative;
-    top: 60px;
+    height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    clear: both;
     width: 100%;
-    text-align: center;
-    font-family: 'Syncopate', sans-serif;
-    font-size: 12em;
-    color: $limey;
-    background-color: inherit;
+    span.title{
+        font-size: 11em;
+    }
+    span.subtitle{
+        font-size: 1.5em;
+        background-color: $lavGray;
+        width: 100%;
+        margin-top: 7%;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 2em;
+    }
 }
 h4{
     font-family: 'Syncopate', sans-serif;
@@ -96,34 +115,60 @@ a{
 #modalBtn{
     margin-left: 5px;
 }
-
-#home{
-    min-height: 100vh;
-}
-#creation{
-    margin: 40px;
-    background-color: $darkgray;
-    height: 500px;
-}
 #about{
     background-color: $berry;
+    padding-top: 100px;
+    padding-bottom: 100px;
     height: 100vh;
-    padding-top: 10%;
-    margin-bottom: -5%;
     // margin-top: -59%;
-    h3{
+    h2{
+        margin-bottom: -4%;
         padding: 5%;
         font-weight: bolder;
         letter-spacing: .2em;
-        text-shadow: 3px 3px 18px $lavGray,
-
+        // text-shadow: 3px 3px 18px $lavGray,
+        text-shadow: -7px 10px 18px $branch,
+             5px 3px 9px $limey;
+    }
+    h3{
+        font-family: 'Sacramento', cursive;
+        background-color: $limey;
+        padding: 1%;
+        letter-spacing: .1em;
+        margin-bottom: -2%;
+    }
+    ul{
+        padding-top: 10%;
+        padding-bottom: 20%
+    }
+    .list{
+        list-style: none;
+        font-family: 'Syncopate', sans-serif;
+        margin-top: 4%;
+        font-weight: bold;
+        font-size: 10%;
     }
 }
+
 #users{
-    background-color: $berry;
-    height: 100vh;
+    background-color: $limey;
+    padding-top:150px;
+    padding-bottom: 100px;
+
+    img{
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+        border: 2em solid $black;
+    }
+    button, a{
+        background-color: $branch;
+        color: $white;
+    }
+
 }
 #inspireGallery{
+    padding-top: 100px;
     background-color: $branch;
     h2{
         color: $white;
@@ -141,10 +186,15 @@ a{
     text-shadow: -7px 10px 18px $black,
 
 }
+#findA{
+    background-color: $lavGray;
+}
 .modal {
   // position: fixed;
   top: 20%;
+  margin: 0 auto;
   color: $black;
+  // display: flex;
     h4, a{
         color: $black;
     }
@@ -161,15 +211,50 @@ a{
         font-size: x-large;
     }
     input{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
         background-color: #000;
         color: #FFF;
         padding: 20px;
         border: 4px solid $limey;
+        font-size: 1.5em;
+    }
+    button{
+        background-color: $black;
+        color: $white;
+        border-radius: 3em;
+        margin-bottom: 2px;
     }
     .out{
         background-color: $berry;
     }
 }
-@media (740px) {
+@media(max-width: 640px)  {
+    .banner span{
+        margin-top: -10%;
+        // font-size: 500%;
+        width: 80%;
+    }
+    #logo{
 
+        span.title{
+            margin-top: -10%;
+            font-size: 500%;
+            width: 80%;
+        }
+        span{
+            .subtitle{
+                margin-top: -3%;
+                padding: 4em;
+            }
+        }
+        img{
+            height: 200px;
+        }
+    }
+    #about{
+        height: 100vh;
+    }
 }

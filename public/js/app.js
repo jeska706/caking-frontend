@@ -17,6 +17,9 @@ app.controller('mainController', ['$http', function($http){
     this.newCreations = {};
     this.myGallery = {};
     this.toCreation = "canvas/index.html"
+    this.viewGallery = false;
+    this.cakes = [];
+
 
     //----------Register---------------
     this.registered = false;
@@ -163,6 +166,26 @@ app.controller('mainController', ['$http', function($http){
         console.log(controller.err);
     }.bind(this));
 
+    // NOT WORKING
+
+    // this.viewGallery = function(){
+    //
+    //     console.log("gallery shout route");
+    //     $http({
+    //         method: 'GET',
+    //         url: controller.URL + '/cakes'
+    //
+    //     }).then(function(res){
+    //         console.log(res);
+    //         this.viewGallery = true;
+    //         // console.log('this is this: ', controller);
+    //         controller.cakes = res.data;
+    //         console.log(controller.cakes);
+    //     },function(res){
+    //         controller.err = res.data;
+    //         console.log(controller.err);
+    //     }.bind(this));
+    // }
 
     //---------------ADD A CAKE---------------
     this.newCake = {};
@@ -204,6 +227,8 @@ app.controller('mainController', ['$http', function($http){
             console.log(res);
             this.newCake = res.data
             this.newCake.title = res.data.title;
+            // this.newCake = {};
+            // this.newCake.unshift(res.data);
             console.log(this.newCake.title);
         }.bind(this));
     }
